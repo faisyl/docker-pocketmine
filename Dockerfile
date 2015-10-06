@@ -1,4 +1,5 @@
 FROM bartt/ubuntu-base
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -y install python3-yaml
 
@@ -10,4 +11,4 @@ RUN mkdir /data
 VOLUME ['/data']
 
 WORKDIR /PocketMine
-ENTRYPOINT ["/PocketMine/start.sh", "--data-path=/data"]
+ENTRYPOINT ["/PocketMine/start.sh", "--data-path=/data", "--no-wizard"]
