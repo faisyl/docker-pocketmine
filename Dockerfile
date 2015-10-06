@@ -8,9 +8,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -y m4 automake autoconf make gcc libtool wget
 
 # Download and run the installer
-ADD http://cdn.pocketmine.net/installer.sh /PocketMine/
-RUN chmod a+x /PocketMine/installer.sh
-RUN cd PocketMine && ./installer.sh
+RUN cd /Pocketmine && curl -sL http://get.pocketmine.net/ | bash -s - -r -v development
 
 # Make the data dir
 RUN mkdir /data
